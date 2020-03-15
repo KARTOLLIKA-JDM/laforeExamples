@@ -1,48 +1,50 @@
 #include <iostream>
 #include <cmath>
-#include <windows.h>
-#include <locale>
-#include <string>
-#include <iomanip>
-
 
 using namespace std;
 
-void calculator(float number1, float number2, char operation)
-{
-    cout << number1 << setw(2) <<  operation << setw(2) << number2 << endl;
-    if (operation == '+')
-    {
-        cout << number1 + number2;
-    } else if (operation == '-')
-    {
-        cout << number1 - number2;
-    } else if (operation == '*')
-    {
-        cout << number1 * number2;
-    } else if (operation == '/')
-    {
-        cout << number1 / number2;
-    }
 
-
-}
-
+void calculator ();
 
 int main() {
     system("chcp 65001");
-    calculator(1, 2, '+');
-//    float gallons;
-//    float feet;
-//    cout << "введите число галлонов: ";
-//    cin >> gallons;
-//    cout << "Количество кубических футов равно: " << feet << endl;
-
-
-
-    return 0;
+    calculator ();
+        return 0;
 }
 
 
-
+void calculator()
+{
+    float number1;
+    float number2;
+    char operation;
+    char answer='a';
+    while (answer != 'n')
+    {
+    cout << "введите первое число: ";
+    cin >> number1;
+    cout << "введите операцию(+,-,*,/): ";
+    cin >> operation;
+    cout << "введите второе число: ";
+    cin >> number2;
+        switch (operation) {
+            case '+':
+                cout << "сумма равна: " << number1 + number2 << endl;
+                break;
+            case '-':
+                cout << "разность равна: " << number1 - number2 << endl;
+                break;
+            case '*':
+                cout << "произведение равно: " << number1 * number2 << endl;
+                break;
+            case '/':
+                cout << "частное равно: " << number1 / number2 << endl;
+                break;
+            default:
+                cout << "неверное действие, повторите попытку...\n";
+        }
+        cout << "Продолжить?(y/n)  ";
+        cin >> answer;
+    }
+}
 
